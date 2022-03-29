@@ -4,3 +4,6 @@ from django.http import HttpResponse
 # Create your views here.
 def index(request):
     return HttpResponse("Hello, world. You're at the beclaw bingo index.")
+
+def game(request):
+    return HttpResponse("<h2>Beclaw Bingo!<h2>")
