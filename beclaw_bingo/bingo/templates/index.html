@@ -1,29 +1,21 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
     <head>
         <title>Beclaw bingo</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
     </head>
     <body>
 
         <h1>My First Heading</h1>
-        <p>My first paragraph.</p>
-        <table>
-            <tr>
-              <th>Company</th>
-              <th>Contact</th>
-              <th>Country</th>
-            </tr>
-            <tr>
-              <td>Alfreds Futterkiste</td>
-              <td>Maria Anders</td>
-              <td>Germany</td>
-            </tr>
-            <tr>
-              <td>Centro comercial Moctezuma</td>
-              <td>Francisco Chang</td>
-              <td>Mexico</td>
-            </tr>
-          </table>
+        <p id="demo">My first paragraph.</p>
+
+        <script>
+            // alert('Hello, world!');
+            document.getElementById("demo").innerHTML = "Hello JavaScript";
+        </script>
+        <button onclick="window.print()">Print this page</button>
 
     </body>
 </html>
