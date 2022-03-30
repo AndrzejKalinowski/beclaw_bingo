@@ -7,7 +7,7 @@ def index(request):
     # latest_question_list = Saying.objects.order_by('-pub_date')[:5]
     # context = {'latest_question_list': latest_question_list}
     context = {'sayings': Saying.objects.all()}
-    return render(request, 'index.html', context)
+    return render(request, 'bingo/index.html', context)
 
 def game(request):
-    return HttpResponse("<h2>Beclaw Bingo!<h2>")
+    return render(request, 'bingo/game.html')  

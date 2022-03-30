@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+    <head>
+        <title>Beclaw bingo</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'bingo/style.css' %}">
+    </head>
+    <body>
+
+        <h1>My First Heading</h1>
+        <p id="demo">My first paragraph.</p>
+        <button><a href="{% url 'game'%}">Play game</a></button>
+
+    </body>
+</html>
