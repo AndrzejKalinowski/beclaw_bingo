@@ -9,39 +9,21 @@
 
         <h1>Bęcław Bingo</h1>
         <!-- <p id="demo">{{saying_list}}</p> -->
+        <p id="p1"></p>
         <script>
             var sayings = [];
-            var x_size = 3;
-            var y_size = 3;
+            var x_size = 5;
+            var y_size = 5;
         </script>
         {% for say in saying_list %}
-            <!-- <li>{{ choice.saying_text }}</li> -->
+        <!-- <li>{{ choice.saying_text }}</li> -->
             <script>
                 sayings.push("{{ say.saying_text }}")
             </script>
         {% endfor %}
-        <script>
-            var body = document.getElementsByTagName("body")[0]; 
-            var ourTable = document.createElement("table");
-            var ourTableBody = document.createElement("tbody");
-            // var sayings = "{{saying_list}}"
-            for (var i = 0; i < x_size; i++) {
-                var row = document.createElement("tr");
-                for (var j = 0; j < y_size; j++){
-                    var cell = document.createElement("td");
-                    var cellText = document.createTextNode(sayings[i+j]);
-                    cell.appendChild(cellText);
-                    row.appendChild(cell);
-                }
-                ourTableBody.appendChild(row);
-            }
-            ourTable.appendChild(ourTableBody);
-            body.appendChild(ourTable);
-            ourTable.setAttribute("border", "2");
-        </script>
+        <script src="{% static 'bingo/bingo.js' %}"></script>
         <br>
         <br>
-        <button onclick="window.print()">Print this page</button>
-
+        <button onclick = "window.print();">Print this page</button>
     </body>
 </html>
