@@ -7,15 +7,23 @@ for (var i = 0; i < x_size; i++) {
     var row = document.createElement("tr");
     for (var j = 0; j < y_size; j++){
         var cell = document.createElement("td");
-        // var cellText = document.createTextNode(sayings[Math.floor(Math.random() * sayings.length)]);
         let cellText = document.createElement("button");
-        cellText.innerHTML = sayings[Math.floor(Math.random() * sayings.length)];
-        cellText.classList.add("bingo_cell")
-        cellText.onclick = function(event){
-            cellText.style.backgroundColor = "#0505AF"
+        
+        if(i == x_size/2 - 0.5 && j == y_size/2 - 0.5){
+            cellText.innerHTML = "free";
+            cellText.classList.add("bingo_cell", "bingo_cell_unclicked")
+            cellText.style.border = 2;
+        }
+        else{
+            cellText.innerHTML = sayings[Math.floor(Math.random() * sayings.length)];
+            cellText.classList.add("bingo_cell", "bingo_cell_unclicked")
+            cellText.onclick = function(event){
+                cellText.classList.replace("bingo_cell_unclicked", "bingo_cell_clicked")
+            }
         }
         cell.appendChild(cellText);
         row.appendChild(cell);
+
     }
     ourTableBody.appendChild(row);
 }

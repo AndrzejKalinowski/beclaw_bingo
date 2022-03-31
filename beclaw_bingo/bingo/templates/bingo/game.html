@@ -8,22 +8,19 @@
     <body>
 
         <h1>Bęcław Bingo</h1>
-        <!-- <p id="demo">{{saying_list}}</p> -->
         <p id="p1"></p>
         <script>
             var sayings = [];
             var x_size = 5;
             var y_size = 5;
         </script>
+        <!-- loading the data -->
         {% for say in saying_list %}
-        <!-- <li>{{ choice.saying_text }}</li> -->
             <script>
                 sayings.push("{{ say.saying_text }}")
             </script>
         {% endfor %}
+
         <script src="{% static 'bingo/bingo.js' %}"></script>
-        <br>
-        <br>
-        <button onclick = "window.print();">Print this page</button>
     </body>
 </html>

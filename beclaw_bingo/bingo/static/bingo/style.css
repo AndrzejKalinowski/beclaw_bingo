@@ -43,9 +43,17 @@ table {
     height: 300px; */
 }
 .bingo_cell {
-    background-color: darkgray;
     height: 100px;
     width: 100px;
+}
+.bingo_cell:hover {
+    background-color: #30308A;
+}
+.bingo_cell_unclicked {
+    background-color: darkgray;
+}
+.bingo_cell_clicked{
+    background-color: #0A0AFA !important;
 }
 /* th {
     table-layout: fixed;
