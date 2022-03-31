@@ -1,3 +1,4 @@
+var number_of_clicked_cells = 0;
 var body = document.getElementsByTagName("body")[0]; 
 var ourTable = document.createElement("table");
 var ourTableBody = document.createElement("tbody");
@@ -11,14 +12,20 @@ for (var i = 0; i < x_size; i++) {
         
         if(i == x_size/2 - 0.5 && j == y_size/2 - 0.5){
             cellText.innerHTML = "free";
-            cellText.classList.add("bingo_cell", "bingo_cell_unclicked")
-            cellText.style.border = 2;
+            cellText.classList.add("bingo_cell", "bingo_cell_unclicked");
+            cellText.style.textDecoration = "line-through";
         }
         else{
             cellText.innerHTML = sayings[Math.floor(Math.random() * sayings.length)];
-            cellText.classList.add("bingo_cell", "bingo_cell_unclicked")
+            cellText.classList.add("bingo_cell", "bingo_cell_unclicked");
             cellText.onclick = function(event){
-                cellText.classList.replace("bingo_cell_unclicked", "bingo_cell_clicked")
+                cellText.classList.replace("bingo_cell_unclicked", "bingo_cell_clicked");
+                number_of_clicked_cells++;
+                console.log(number_of_clicked_cells);
+                if(number_of_clicked_cells >= 5){
+                    alert("BINGO!")
+                    location.reload();
+                }
             }
         }
         cell.appendChild(cellText);
