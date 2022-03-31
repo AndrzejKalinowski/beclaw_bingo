@@ -36,8 +36,3 @@ for (var i = 0; i < x_size; i++) {
 }
 ourTable.appendChild(ourTableBody);
 body.appendChild(ourTable);
-
-// ourTable.setAttribute("border", "2");
-// document.getElementById("p1").innerHTML = Math.floor(Math.random() * sayings.length);
-// document.getElementById("p1").innerHTML = "hello";
-// document.getElementById("p1").innerHTML = sayings.length;
