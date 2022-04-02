@@ -8,6 +8,10 @@ y_true = new Array(y_size)
 for(var i = 0; i < y_size; i++){
     y_true[i] = true;
 }
+y_for_check = new Array(y_size)
+for(var i = 0; i < y_size; i++){
+    y_for_check[i] = false;
+}
 
 for (var i = 0; i < x_size; i++) {
     number_of_clicked_cells[i] = new Array(y_size);
@@ -26,6 +30,11 @@ function shuffle(array) {
         [array[i], array[j]] = [array[j], array[i]];
     }
     return array
+}
+
+function bingo() {
+    alert("BINGO!")
+    location.reload()
 }
 
 shuffle(sayings); //suffeling the array of beclaw's sayings
@@ -54,12 +63,21 @@ for (var i = 0; i < x_size; i++) {
                 number_of_clicked_cells[cellText.id[0]][cellText.id[2]] = true;
                 // console.log(number_of_clicked_cells);
                 // console.log(cellText.id);
+
+                // checking for horizontal bingo
                 for(var a = 0; a < x_size; a++){
-                    console.log(a, number_of_clicked_cells[a])
+                    // console.log(a, number_of_clicked_cells[a])
                     if(JSON.stringify(number_of_clicked_cells[a]) == JSON.stringify(x_true)){
-                        alert("BINGO!");
-                        location.reload()
+                        bingo()
                     }
+                }
+                // checking for vertical bingo
+                for(var b = 0; b < y_size; b++){
+                    y_for_check[b] = number_of_clicked_cells[b][cellText.id[2]]
+                }                        
+                console.log(y_for_check)
+                if(JSON.stringify(y_for_check) == JSON.stringify(y_true)){
+                    bingo()
                 }
             }
             saying_index++;
