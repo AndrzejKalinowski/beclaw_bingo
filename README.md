@@ -1,5 +1,6 @@
-# beclaw_bingo
-Simple bingo game baseed on my favourite teacher.
+# Beclaw Bingo
+Simple bingo game baseed on my favourite teacher. \
+I don't even know how this works.
 
 ![alternatywny tekst][id]
 
