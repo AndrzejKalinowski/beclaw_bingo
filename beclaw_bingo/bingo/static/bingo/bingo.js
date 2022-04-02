@@ -14,7 +14,6 @@ function shuffle(array) {
 shuffle(sayings); //suffeling the array of beclaw's sayings
 
 saying_index = 0
-document.write(sayings)
 for (var i = 0; i < x_size; i++) {
     var row = document.createElement("tr");
     for (var j = 0; j < y_size; j++){
