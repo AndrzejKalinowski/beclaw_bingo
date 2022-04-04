@@ -61,6 +61,7 @@ for (var i = 0; i < x_size; i++) {
         let cellText = document.createElement("button");
         
         if(i == x_size/2 - 0.5 && j == y_size/2 - 0.5){
+            number_of_clicked_cells[x_size/2 - 0.5][y_size/2 - 0.5] = true
             cellText.innerHTML = "free";
             cellText.classList.add("bingo_cell", "bingo_cell_unclicked");
             cellText.style.textDecoration = "line-through";
