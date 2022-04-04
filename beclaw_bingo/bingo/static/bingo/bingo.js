@@ -1,18 +1,31 @@
 var number_of_clicked_cells = new Array(x_size)
 
-x_true = new Array(x_size)
+var x_true = new Array(x_size)
 for(var i = 0; i < x_size; i++){
     x_true[i] = true;
 }
-y_true = new Array(y_size)
+var y_true = new Array(y_size)
 for(var i = 0; i < y_size; i++){
     y_true[i] = true;
 }
-y_for_check = new Array(y_size)
+var y_for_check = new Array(y_size)
 for(var i = 0; i < y_size; i++){
     y_for_check[i] = false;
 }
 
+var diag_for_check_a = new Array(x_size)
+for(var i = 0; i < diag_for_check_a.length; i++){
+    diag_for_check_a[i] = false;
+}
+var diag_for_check_b = new Array(x_size)
+for(var i = 0; i < diag_for_check_b.length; i++){
+    diag_for_check_b[i] = false;
+}
+
+var diag_true = new Array(x_size);
+for(var i = 0; i < diag_true.length; i++){
+    diag_true[i] = true;
+}
 for (var i = 0; i < x_size; i++) {
     number_of_clicked_cells[i] = new Array(y_size);
     for(var j = 0; j < y_size; j++){
@@ -59,6 +72,7 @@ for (var i = 0; i < x_size; i++) {
             // delete sayings[saying_index]
             cellText.classList.add("bingo_cell", "bingo_cell_unclicked");
             cellText.onclick = function(event){
+                console.clear()
                 cellText.classList.replace("bingo_cell_unclicked", "bingo_cell_clicked");
                 number_of_clicked_cells[cellText.id[0]][cellText.id[2]] = true;
                 // console.log(number_of_clicked_cells);
@@ -75,9 +89,28 @@ for (var i = 0; i < x_size; i++) {
                 for(var b = 0; b < y_size; b++){
                     y_for_check[b] = number_of_clicked_cells[b][cellText.id[2]]
                 }                        
-                console.log(y_for_check)
+                // console.log(y_for_check)
                 if(JSON.stringify(y_for_check) == JSON.stringify(y_true)){
                     bingo()
+                }
+                // checking for diagonal bingo
+                if(x_size == y_size){
+                    for(var i = 0; i < x_size; i++){
+                        diag_for_check_a[i] = number_of_clicked_cells[i][i];
+                        // console.log(number_of_clicked_cells[i][i]);
+                    }
+                    if(JSON.stringify(diag_for_check_a) == JSON.stringify(diag_true)){
+                        bingo()
+                    }
+                    for(var i = x_size; i > 0; i = i - 1){
+                        console.log(x_size - i, i - 1)
+                        // console.log(number_of_clicked_cells[x_size - i][i - 1])
+                        diag_for_check_b[x_size - i] = number_of_clicked_cells[x_size - i][i - 1]
+                    }
+                    if(JSON.stringify(diag_for_check_b) == JSON.stringify(diag_true)){
+                        bingo()
+                    }
+
                 }
             }
             saying_index++;
